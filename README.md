@@ -9,7 +9,7 @@
 
 - 💬 Ask me about **C#**
 
-- ⚡ Fact **The Sun is at an average distance of about 93,000,000 miles**
+- ⚡ Fact: **The Sun is at an average distance of about 93,000,000 miles**
 
 
 <h3 align="left">Languages and Tools:</h3>
