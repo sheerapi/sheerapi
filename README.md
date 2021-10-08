@@ -1,11 +1,11 @@
 <h1 align="center">Hi 👋, I'm sheerapi</h1>
 <h3 align="center">A passionate backend developer from Chile</h3>
 
-- 🔭 I’m currently working on [CosmicOS](https://github.com/sheerapi/cosmicOS)
+- 🔭 I’m currently working on [Hue](https://github.com/sheerapi/cosmicOS)
 
 - 🌱 I’m currently learning **Python and C++**
 
-- 🤝 I’m looking for help with [CosmicOS](https://github.com/sheerapi/cosmicOS)
+- 🤝 I’m looking for help with [Hue](https://github.com/sheerapi/cosmicOS)
 
 - 💬 Ask me about **C#**
 
