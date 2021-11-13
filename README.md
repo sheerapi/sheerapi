@@ -1,9 +1,9 @@
 <h1 align="center">Hi 👋, I'm sheerapi</h1>
 <h3 align="center">A passionate backend developer from Chile</h3>
 
-- 🔭 I’m currently working on [Leaf](https://github.com/sheerapi/LeafEngine)
+- 🔭 I’m currently working on [Hue](https://github.com/sheerapi/Hue)
 
-- 🌱 I’m currently learning **Python and C++**
+- 🌱 I’m currently learning **Python** and **C++**
 
 - 🤝 I’m looking for help with [Leaf](https://github.com/sheerapi/LeafEngine)
 
