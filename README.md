@@ -5,13 +5,13 @@
 
 - 🌱 I’m currently learning **Python** and **C++**
 
-- 🤝 I’m looking for help with [Leaf](https://github.com/sheerapi/LeafEngine) (Just started, so...)
+- 🤝 I’m looking for help with [Leaf](https://github.com/sheerapi/LeafEngine) (I have 4 variations of it help)
 
 - 💬 Ask me about **C#**
 
 - ⚡ Fact: **The Sun is at an average distance of about 93,000,000 miles**
 
-- 📰 Info: If you see the same repo but with little to no difference, such as **LeafEngine**, **LeafEngineSDL**, **LeafEngineOpenGL**, **LeafEngineGLFW**, it's just me testing out every API i can to choose the ideal one, the one that will be used in release
+- 📰 Info: If you see the same repo but with little to no difference, such as **LeafEngine**, **LeafEngineSDL**, **LeafEngineOpenGL**, **LeafEngineGLFW**, **LeafEngineThree**, it's just me testing out every API i can to choose the ideal one, the one that will be used in release
 
 
 <h3 align="left">Languages and Tools:</h3>
