@@ -1,11 +1,11 @@
 <h1 align="center">Hi 👋, I'm Sheerapi</h1>
 <h3 align="center">A passionate backend developer from Chile</h3>
 
-- 🔭 I’m currently working on [Leaf](https://github.com/sheerapi/LeafEngine) (Now for real lmao)
+- 🔭 I’m currently working on nothing
 
 - 🌱 I’m currently learning **Python** and **C++**
 
-- 🤝 I’m looking for help with [Leaf](https://github.com/sheerapi/LeafEngine) (I have 4 variations of it help)
+- 🤝 I’m looking for help with nothing
 
 - 💬 Ask me about **C#**
 
