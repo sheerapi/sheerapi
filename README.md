@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on Leaf<br>🌱 I’m currently learning OpenGL<br>💬 Ask me about C#<br>⚡ Fun fact: The human heart beats 100,000 times a day, normally
+🔭 I’m currently working on [Eclipse Linux](https://github.com/EclipseLinux)<br>🌱 I’m currently learning all that's left from C++, and the internals of operating system and such, idk<br>💬 Ask me about C#<br>⚡ Fun fact: The human heart beats 100,000 times a day, normally
 
 
 # 💻 Tech Stack:
