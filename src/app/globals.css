@@ -34,7 +34,7 @@ body
 
 .eclipse-banner
 {
-    background-image: url('/background.png');
+    background-image: url('/sheerapi.github.io/background.png');
     display: flex;
     flex-direction: column;
     justify-content: center;
