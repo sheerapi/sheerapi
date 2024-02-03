@@ -2,7 +2,7 @@
 const nextConfig = {
     output: 'export',
     skipTrailingSlashRedirect: true,
-    basePath: "/sheerapi.github.io",
+    basePath: "./",
     images: {
         unoptimized: true,
       },
