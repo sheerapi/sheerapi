@@ -7,12 +7,50 @@ html
     font-size: 1.171303vw;
 }
 
+*
+{
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 body
 {
     background-color: #050411;
     height: 100%;
     margin: 0;
     color: #fff;
+}
+
+a:link 
+{
+    color: white;
+    text-decoration: none;
+}
+  
+a:visited 
+{
+    color: white;
+    text-decoration: none;
+}
+  
+a:hover 
+{
+    color: white;
+    text-decoration: none;
+}
+
+a:focus
+{
+    color: white;
+    border: none;
+    text-decoration: underline;
+    outline: none;
+}
+  
+a:active 
+{
+    color: white;
+    text-decoration: none;
 }
 
 .main
@@ -73,4 +111,106 @@ body
 {
     font-weight: 800;
     letter-spacing: 0.25vw;
+}
+
+.intro
+{
+    background-image: url('/background2.png');
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.avatar-panel
+{
+    height: 90%;
+    padding-right: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4vw;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.avatar
+{
+    background-image: url('/pfp1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 19vw;
+    height: 19vw;
+    border-radius: 50%;
+    box-shadow: 0px 0px 250px #F1375F;
+    transform: rotate(-5deg);
+}
+
+.content
+{
+    padding-left: 4vw;
+    padding-top: 3.5vw;
+    gap: 8vw;
+}
+
+.intro-text
+{
+    font-size: 2.3em;
+    font-weight: 200;
+}
+
+.intro-para
+{
+    font-weight: 200;
+    font-size: 1.2em;
+}
+
+.intro-para a
+{
+    font-weight: 600;
+    color: #F1375F;
+    text-shadow: 0px 0px 48px #F1375F;
+}
+
+.facts span
+{
+    font-weight: 200;
+    font-size: 0.5em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.intro-para a:hover
+{
+    color: #f74b70;
+    text-shadow: 0px 0px 48px #f74b70;
+    transform: translateY(5%);
+}
+
+.intro-para b
+{
+    font-weight: 600;
+    color: #F1375F;
+    text-shadow: 0px 0px 48px #F1375F;
+}
+
+.facts
+{
+    letter-spacing: 0.15vw;
+    line-height: 2.5vw;
+    font-weight: 300;
+    padding-left: 2vw;
+}
+
+.intro-text a
+{
+    font-weight: 600;
+    color: #F1375F;
+    text-shadow: 0px 0px 48px #F1375F;
+}
+
+.intro-text a:hover
+{
+    color: #f74b70;
+    text-shadow: 0px 0px 48px #f74b70;
+    transform: translateY(5%);
 }
