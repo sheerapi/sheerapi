@@ -15,7 +15,7 @@ html
 
 body
 {
-    background-color: #050411;
+    background-color: #080713;
     height: 100%;
     margin: 0;
     color: #fff;
@@ -23,33 +23,28 @@ body
 
 a:link 
 {
-    color: white;
     text-decoration: none;
 }
   
 a:visited 
 {
-    color: white;
     text-decoration: none;
 }
   
 a:hover 
 {
-    color: white;
     text-decoration: none;
 }
 
 a:focus
 {
-    color: white;
     border: none;
-    text-decoration: underline;
+    text-decoration: none;
     outline: none;
 }
   
 a:active 
 {
-    color: white;
     text-decoration: none;
 }
 
@@ -113,12 +108,16 @@ a:active
     letter-spacing: 0.25vw;
 }
 
-.intro
+.info
 {
-    background-image: url('/background2.png');
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.intro
+{
+    background-image: url('/background2.png');
 }
 
 .avatar-panel
@@ -146,71 +145,174 @@ a:active
     transform: rotate(-5deg);
 }
 
-.content
+.info .content
 {
+    display: flex;
+    flex-direction: column;
     padding-left: 4vw;
+    padding-right: 4vw;
     padding-top: 3.5vw;
-    gap: 8vw;
+    gap: 1vw;
+    width: 100%;
+    height: auto;
 }
 
-.intro-text
+.header
 {
     font-size: 2.3em;
     font-weight: 200;
 }
 
-.intro-para
+.para
 {
     font-weight: 200;
     font-size: 1.2em;
 }
 
-.intro-para a
+a
 {
     font-weight: 600;
     color: #F1375F;
     text-shadow: 0px 0px 48px #F1375F;
 }
 
-.facts span
+.list span
 {
     font-weight: 200;
     font-size: 0.5em;
     color: rgba(255, 255, 255, 0.5);
 }
 
-.intro-para a:hover
+a:hover
 {
     color: #f74b70;
     text-shadow: 0px 0px 48px #f74b70;
     transform: translateY(5%);
 }
 
-.intro-para b
+b
 {
     font-weight: 600;
     color: #F1375F;
     text-shadow: 0px 0px 48px #F1375F;
 }
 
-.facts
+.list
 {
     letter-spacing: 0.15vw;
     line-height: 2.5vw;
     font-weight: 300;
+    font-size: 0.9em;
     padding-left: 2vw;
+    padding-top: 0.5vw;
 }
 
-.intro-text a
+.container
 {
-    font-weight: 600;
-    color: #F1375F;
-    text-shadow: 0px 0px 48px #F1375F;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2vw;
 }
 
-.intro-text a:hover
+.container .column
 {
-    color: #f74b70;
-    text-shadow: 0px 0px 48px #f74b70;
-    transform: translateY(5%);
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 100%;
+    height: 100%;
+    font-weight: 200;
+}
+
+.column.ltr
+{
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.column.rtl
+{
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.chart
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding-top: 0.5vw;
+}
+
+.column.rtl .chart
+{
+    align-items: flex-end;
+}
+
+.chart div
+{
+    border-radius: 1vw;
+    padding-left: 1.25vw;
+    padding-top: 0.75vw;
+    padding-bottom: 0.75vw;
+    padding-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.chart div .usage
+{
+    font-size: 0.8em;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.graveyard-container
+{
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 1vw;
+}
+
+.graveyard-container div
+{
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    border-radius: 0.75vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25vw;
+    transform: scale(80%) translateY(10%);
+    color: #fff;
+}
+
+.graveyard-container div:hover
+{
+    background: rgba(185,185,185,1);
+    transform: scale(100%) translateY(-10%);
+    box-shadow: 4px 4px 48px rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.graveyard-container div .tomb
+{
+    font-size: 2em;
+}
+
+.graveyard-container div .tomb-name
+{
+    font-size: 1.5em;
+}
+
+.graveyard-container div .tomb-desc
+{
+    text-align: center;
 }
