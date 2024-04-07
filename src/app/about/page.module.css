@@ -1,0 +1,97 @@
+.song_photo {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 1rem;
+}
+
+.song_info {
+    width: 16rem;
+}
+
+.song_name {
+    font-weight: 700;
+    font-size: 1.25rem;
+    max-width: 16rem;
+}
+
+.song_album {
+    font-weight: 500;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.song_artist {
+    font-weight: 500;
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+
+.song_card {
+    transform: rotate(4deg) translateY(7%);
+    max-width: 19rem;
+    margin-bottom: 4rem;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.song_card:hover {
+    transform: rotate(-4deg) translateY(-3%) perspective(0);
+    box-shadow: 4px 4px 24px rgba(255, 255, 255, 0.25);
+}
+
+.intro_header {
+    margin-top: 2rem;
+}
+
+.interest_page {
+    position: absolute;
+    top: 18rem;
+    right: 2rem;
+    width: 50%;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+}
+
+.interest_grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    gap: 1rem;
+}
+
+.interest {
+    width: 9rem;
+    height: 9rem;
+    transition-duration: 400ms;
+    border-radius: 1rem;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    background-size: cover;
+    background-position: center;
+}
+
+.interest:hover {
+    transform: rotate(-5deg) translateY(-5%);
+    box-shadow: 4px 4px 24px rgba(255, 255, 255, 0.25);
+}
+
+.interest_container {
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    backdrop-filter: grayscale(100%) blur(16px);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.interest_container:hover {
+    backdrop-filter: grayscale(0%) blur(0px);
+}
