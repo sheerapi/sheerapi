@@ -10,7 +10,9 @@ html {
 body {
 	background-color: #010101;
 	height: 100%;
-	margin: 2rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
+	padding-top: 2rem;
 	color: #f6f6f4;
 }
 
@@ -24,6 +26,47 @@ body {
 	font-size: 0.75rem;
 	font-weight: 400;
 	opacity: 0.5;
+}
+
+.blog-container {
+	gap: 2rem;
+}
+
+.mt-8 {
+	margin-top: 2rem;
+}
+
+.h-12 {
+	height: 3rem;
+}
+
+.blog-post-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+}
+
+.w-96 {
+	width: 24rem;
+}
+
+.w-48 {
+	width: 10rem;
+}
+
+.h-4 {
+	height: 1rem;
+}
+
+.h-128 {
+	height: 26rem;
+}
+
+.blog-post-info-container {
+	display: flex;
+	justify-content: space-between;
+	width: 24rem;
 }
 
 @layer base {

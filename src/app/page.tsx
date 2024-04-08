@@ -1,12 +1,10 @@
 import { buttonVariants } from "@/components/ui/button";
 import Header from "@/components/ui/header";
-import SocialBar from "@/components/ui/social-bar";
 import Link from "next/link";
 
 export default function Home() {
 	return (
 		<main className="flex justify-center items-center h-full flex-col gap-5">
-			<SocialBar></SocialBar>
 			<Header>it's me, hi.</Header>
 			<div className="flex gap-4">
 				<Link className={buttonVariants({ variant: "default" })} href="/blog">blog</Link>

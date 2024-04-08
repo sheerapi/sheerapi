@@ -49,9 +49,7 @@ export default function About() {
 
     return (
         <main className="flex justify-start items-start h-full flex-col gap-5">
-            <SocialBar></SocialBar>
-
-            <div className="absolute top-[2rem] left-0">
+            <div className="absolute top-[2rem] left-[2rem]">
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbLink href="/">home</BreadcrumbLink>
