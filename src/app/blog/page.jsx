@@ -6,6 +6,7 @@ import { app, initFirebase } from "@/lib/utils";
 import { getStorage, ref, listAll, list, getDownloadURL } from "firebase/storage";
 import { useEffect, useState } from "react";
 import matter from "gray-matter";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Blog() {
     initFirebase();
@@ -13,21 +14,30 @@ export default function Blog() {
     const storage = getStorage(app);
     const listRef = ref(storage, '');
 
-    let [postList, setPostList] = useState([]);
+    let postList = [];
+    let [loading, setLoading] = useState(true);
 
     const sync = async () => {
-        const list = (await listAll(listRef)).items;
+        listAll(listRef).then(itemList => {
+            const list = itemList.items;
 
-        setPostList(list.map(async (post) => {
-            const url = await getDownloadURL(ref(storage, post.fullPath));
-            const content = matter(await (await fetch(url)).text());
-
-            return { name: content.data.title };
-        }));
+            list.forEach((post) => {
+                getDownloadURL(ref(storage, post.fullPath)).then(url => {
+                    fetch(url).then(raw => {
+                        raw.text().then(text => {
+                            const content = matter(text);
+                            postList.push({ name: content.data.title, date: new Date(parseInt(content.data.date)), type: content.data.type });
+                        });
+                    })
+                });
+            });
+        });
     };
 
     useEffect(() => {
-        sync();
+        sync().then(() => {
+            setLoading(false);
+        })
     }, []);
 
     return (
@@ -46,9 +56,18 @@ export default function Blog() {
                 <Header>blog.</Header>
                 <p>here i'll post updates related to projects, myself, important events and stuff like that, i guess.</p>
 
-                {postList.map((post) => {
-                    console.log(post.name);
-                })}
+                <ul>
+                    {loading ? <Skeleton className="w-24 h-12"></Skeleton> :
+                        postList.map((post, index) => {
+                            console.log(loading);
+
+                            return <li key={index}>
+                                <span>{post.name}</span>
+                                <span>{post.date.toString()}</span>
+                            </li>
+                        })
+                    }
+                </ul>
             </div>
         </main>
     );
