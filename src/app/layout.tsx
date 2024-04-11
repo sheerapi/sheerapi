@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import SocialBar from "@/components/ui/social-bar";
 import { initFirebase } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,13 +24,19 @@ export default function RootLayout({
 		<html lang="en">
 			<head>
 				<meta name="google-site-verification" content="sG8Oh9UyRJEqvc9vO80nBgZtD2UWlGDYiw3qTpIJLBk" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" />
 			</head>
 			<body className={inter.className}>
 				<SpeedInsights />
 				<SocialBar></SocialBar>
 				<ThemeProvider attribute="class" defaultTheme="dark">
 					{children}
+					<Toaster />
 				</ThemeProvider>
+
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+				<script>hljs.highlightAll();</script>
 			</body>
 		</html>
 	);

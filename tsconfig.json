@@ -37,7 +37,7 @@
     "lib/posts.js",
     "src/app/blog/page.jsx",
     "src/app/blog/posts/[post]/page.jsx"
-  ],
+, "src/app/blog/write/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]
