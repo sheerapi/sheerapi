@@ -2,8 +2,7 @@ import Header from '@/components/ui/header'
 import type { MDXComponents } from 'mdx/types'
 import Image from '@/components/ui/image';
 import { ImageProps } from 'next/image';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { Code } from 'bright';
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
@@ -24,6 +23,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             <Image {...(props as ImageProps)} />
         ),
         p: ({ children }) => <div>{children}</div>,
+        pre: Code,
         blockquote: ({ children }) => <div className="blockquoute">{children}</div>,
         ...components,
     }

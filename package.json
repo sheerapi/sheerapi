@@ -30,6 +30,7 @@
     "@types/mdx": "^2.0.12",
     "@vercel/speed-insights": "^1.0.10",
     "axios": "^1.6.8",
+    "bright": "^0.8.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "dotenv": "^16.4.5",
