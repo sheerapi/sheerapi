@@ -4,8 +4,7 @@ import { Breadcrumb, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbS
 import { Card } from "@/components/ui/card";
 import Header from "@/components/ui/header";
 import Muted from "@/components/ui/muted";
-import SocialBar from "@/components/ui/social-bar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./page.module.css";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -45,7 +44,13 @@ export default function About() {
         }
     };
 
-    // setInterval(sync, 10000);
+    useEffect(() => {
+        const timer = setInterval(sync, 5000);
+
+        return () => {
+            clearInterval(timer);
+        }
+    })
 
     return (
         <main className="flex justify-start items-start h-full flex-col gap-5">

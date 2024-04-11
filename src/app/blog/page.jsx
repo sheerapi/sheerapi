@@ -22,14 +22,7 @@ export default function Blog() {
             const list = itemList.items;
 
             list.forEach((post) => {
-                getDownloadURL(ref(storage, post.fullPath)).then(url => {
-                    fetch(url).then(raw => {
-                        raw.text().then(text => {
-                            const content = matter(text);
-                            postList.push({ name: content.data.title, date: new Date(parseInt(content.data.date)), type: content.data.type });
-                        });
-                    })
-                });
+                postList.push({ name: post.name, date: post.bucket, type: post.fullPath })
             });
         });
     };
