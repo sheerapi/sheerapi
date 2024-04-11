@@ -1,8 +1,6 @@
-import { ImageProps } from "next/image";
 import Muted from "./muted";
-import { useState } from "react";
 
-export default function Image(props: ImageProps) {
+export default function Image(props) {
     const src = props.src;
 
     return (
