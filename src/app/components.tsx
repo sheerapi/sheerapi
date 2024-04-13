@@ -2,14 +2,17 @@ import Header from '@/components/ui/header'
 import type { MDXComponents } from 'mdx/types'
 import Image from '@/components/ui/image';
 import { ImageProps } from 'next/image';
-import { Code } from 'bright';
+import { Code } from "bright";
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
 // React component you want, including inline styles,
 // components from other libraries, and more.
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
+export function useMDXComponents(): MDXComponents {
+    Code.lineNumbers = true;
+    Code.theme = "dark-plus";
+
     return {
         // Allows customizing built-in components, e.g. to add styling.
         h1: ({ children }) => <Header>{children}</Header>,
@@ -22,9 +25,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         img: (props) => (
             <Image {...(props as ImageProps)} />
         ),
-        p: ({ children }) => <div>{children}</div>,
         pre: Code,
+        p: ({ children }) => <div>{children}</div>,
         blockquote: ({ children }) => <div className="blockquoute">{children}</div>,
-        ...components,
     }
 }

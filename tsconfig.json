@@ -36,8 +36,11 @@
     "src/app/blog/hello/page.mdx",
     "lib/posts.js",
     "src/app/blog/page.jsx",
-    "src/app/blog/posts/[post]/page.jsx"
-, "src/app/blog/write/page.jsx", "src/components/ui/image.jsx"  ],
+    "src/app/blog/posts/[post]/page.jsx",
+    "src/app/blog/write/page.jsx",
+    "src/components/ui/image.jsx",
+    "src/app/blog/post/[slug]/page.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]
