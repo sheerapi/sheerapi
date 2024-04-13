@@ -23,7 +23,7 @@ export default async function Page(params: { params: { slug: string } }) {
     return (
         <main className="flex justify-start items-start h-full flex-col gap-5 project">
             <div className="project-effect-container">
-                <CanvasRevealEffect animationSpeed={0.75}
+                <CanvasRevealEffect animationSpeed={2}
                     containerClassName="bg-transparent"
                     colors={project.colors}
                     opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}

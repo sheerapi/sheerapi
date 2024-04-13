@@ -359,3 +359,52 @@ code {
 	border-radius: 0.25rem;
 	font-family: 'Fira Code', monospace;
 }
+
+.project-card {
+	width: 12rem;
+	height: 8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.6rem;
+	border: solid 0.1rem rgb(82 82 91);
+	flex-direction: column;
+	clip-path: fill-box;
+}
+
+.project-header {
+	font-weight: 800;
+	letter-spacing: 0.1rem;
+}
+
+.project-desc {
+	font-size: 0.7rem;
+	font-weight: 400;
+	text-align: center;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.project-card-gradient {
+	z-index: -1;
+	position: fixed;
+	width: 12rem;
+	height: 12rem;
+	max-width: 12rem;
+	max-height: 12rem;
+}
+
+.project-card-effect {
+	z-index: -2;
+	position: fixed;
+	border-radius: 0.6rem;
+	max-width: 12rem;
+	max-height: 12rem;
+}
+
+.project-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 12rem);
+	grid-template-rows: repeat(3, 8rem);
+	gap: 2rem;
+}

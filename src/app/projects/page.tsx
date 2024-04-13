@@ -5,13 +5,14 @@ import Muted from "@/components/ui/muted";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faGithub, faInstagram, faPinterestP, faStackOverflow, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { CanvasRevealEffect } from "@/components/ui/canvas-reveal";
 
 export default function Page() {
     const projects = getProjects();
 
     return (
         <main className="flex justify-start items-start h-full flex-col gap-5">
-            <div className="absolute top-[1.5rem] left-[1rem] projects-breadcrumb">
+            <div className="absolute top-[1.5rem] text-white left-[1rem] projects-breadcrumb">
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbLink href="/">home</BreadcrumbLink>
@@ -35,6 +36,24 @@ export default function Page() {
                 <p>
                     projects i'm currently working on, or not.
                 </p>
+                <div className="h-6 w-6">
+
+                </div>
+                <div className="w-full pr-8 project-grid">
+                    {projects.map((project, index) => {
+                        return <div className="project-card">
+                            <CanvasRevealEffect
+                                animationSpeed={1.5}
+                                colors={project.colors}
+                                containerClassName="bg-black project-card-effect"
+                                dotSize={2}
+                            />
+                            <div className="project-card-gradient [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50" />
+                            <Link href={`/projects/${project.id}`} className="project-header">{project.name}</Link>
+                            <Link href={`/projects/${project.id}`} className="project-desc">{project.description}</Link>
+                        </div>
+                    })}
+                </div>
             </div>
         </main>
     );
