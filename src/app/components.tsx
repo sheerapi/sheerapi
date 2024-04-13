@@ -25,6 +25,7 @@ export function useMDXComponents(): MDXComponents {
         img: (props) => (
             <Image {...(props as ImageProps)} />
         ),
+        code: ({ children }) => <code className="inline-code">{children}</code>,
         pre: Code,
         p: ({ children }) => <div>{children}</div>,
         blockquote: ({ children }) => <div className="blockquoute">{children}</div>,

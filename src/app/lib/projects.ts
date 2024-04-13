@@ -8,7 +8,7 @@ import { cache } from 'react'
 export const getProjects = cache(() => {
     const result = JSON.parse(fs.readFileSync(process.cwd() + '/projects/index.json').toString());
 
-    return result.projects;
+    return result.projects as Project[];
 })
 
 export function getProject(slug: string) {

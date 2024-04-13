@@ -349,3 +349,13 @@ code {
 	margin-top: 4rem;
 	margin-left: 2rem;
 }
+
+.inline-code {
+	background-color: rgb(39 39 42);
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	border-radius: 0.25rem;
+	font-family: 'Fira Code', monospace;
+}

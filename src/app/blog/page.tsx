@@ -5,7 +5,9 @@ import Muted from "@/components/ui/muted";
 import Link from "next/link";
 
 export default function Blog() {
-    const posts = getPosts();
+    const posts = getPosts().sort((b, a) => {
+        return parseInt(a.date) - parseInt(b.date);
+    });
 
     return (
         <main className="flex justify-start items-start h-full flex-col gap-5">
