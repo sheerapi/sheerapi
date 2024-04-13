@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import SocialBar from "@/components/ui/social-bar";
 import { initFirebase } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
 			</head>
 			<body className={inter.className}>
 				<SpeedInsights />
+				<Analytics />
 				<SocialBar></SocialBar>
 				<ThemeProvider attribute="class" defaultTheme="dark">
 					{children}
