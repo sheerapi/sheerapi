@@ -12,7 +12,7 @@ import remarkMath from 'remark-math';
 import remarkEmbed from 'remark-oembed';
 
 function convertTZ(date: any, tzString: string) {
-    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
+    return (new Date((typeof date === "string" ? new Date(date) : date)).toLocaleString("en-US", { timeZone: tzString }));
 }
 
 export default async function Page(params: { params: { slug: string } }) {
@@ -23,7 +23,7 @@ export default async function Page(params: { params: { slug: string } }) {
     }
 
     const date = convertTZ(parseInt(post.date), "America/Santiago");
-    const dateString = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear().toString().padStart(4, '0')}, ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+    const dateString = `${date}`;
 
     return (
         <main className="flex justify-start items-start h-full flex-col gap-5">
