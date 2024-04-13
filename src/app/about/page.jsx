@@ -17,9 +17,9 @@ export default function About() {
     const sync = async () => {
         const params = new URLSearchParams();
         params.append("grant_type", "refresh_token");
-        params.append("client_id", process.env.SPOTIFY_ID);
-        params.append("client_secret", process.env.SPOTIFY_SECRET);
-        params.append("refresh_token", process.env.SPOTIFY_REFRESH_TOKEN);
+        params.append("client_id", process.env.NEXT_PUBLIC_SPOTIFY_ID);
+        params.append("client_secret", process.env.NEXT_PUBLIC_SPOTIFY_SECRET);
+        params.append("refresh_token", process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN);
 
         const token = (await (await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
