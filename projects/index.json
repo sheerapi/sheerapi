@@ -85,6 +85,35 @@
                 ]
             ],
             "status": "Indefinite hiatus"
+        },
+        {
+            "name": "Eclipse Linux",
+            "tags": [
+                "linux-distro",
+                "linux"
+            ],
+            "description": "Small, customizable linux distribution with it's own ecosystem",
+            "repo": "EclipseLinux/Eclipse",
+            "post": "",
+            "id": "eclipse",
+            "colors": [
+                [
+                    237,
+                    83,
+                    199
+                ],
+                [
+                    237,
+                    134,
+                    83
+                ],
+                [
+                    83,
+                    163,
+                    237
+                ]
+            ],
+            "status": "Indefinite hiatus"
         }
     ]
 }
