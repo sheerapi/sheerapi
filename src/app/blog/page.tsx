@@ -4,6 +4,10 @@ import getPosts from "../lib/posts";
 import Muted from "@/components/ui/muted";
 import Link from "next/link";
 
+function convertTZ(date: any, tzString: string) {
+    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
+}
+
 export default function Blog() {
     const posts = getPosts().sort((b, a) => {
         return parseInt(a.date) - parseInt(b.date);
@@ -28,8 +32,8 @@ export default function Blog() {
                 </p>
                 <div className="h-96 flex flex-col gap-4 mt-8 ml-8 w-full pr-8">
                     {posts.map((post, index) => {
-                        const date = new Date(parseInt(post.date));
-                        const dateString = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear().toString().padStart(4, '0')}, ${(date.getHours() - 4).toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+                        const date = convertTZ(parseInt(post.date), "America/Santiago");
+                        const dateString = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear().toString().padStart(4, '0')}, ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
 
                         return <div key={index} className="w-full flex blog-post-info-list justify-between">
                             <div className="w-full flex gap-4 items-center">
