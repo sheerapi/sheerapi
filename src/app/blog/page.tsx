@@ -29,7 +29,7 @@ export default function Blog() {
                 <div className="h-96 flex flex-col gap-4 mt-8 ml-8 w-full pr-8">
                     {posts.map((post, index) => {
                         const date = new Date(parseInt(post.date));
-                        const dateString = `${date.getDay().toString().padStart(2, '0')}-${date.getMonth().toString().padStart(2, '0')}-${date.getFullYear().toString().padStart(4, '0')}, ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+                        const dateString = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear().toString().padStart(4, '0')}, ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
 
                         return <div key={index} className="w-full flex blog-post-info-list justify-between">
                             <div className="w-full flex gap-4 items-center">
