@@ -29,9 +29,9 @@ export default function Blog() {
                         const date = new Date(parseInt(post.date));
                         const dateString = `${date.getDay().toString().padStart(2, '0')}-${date.getMonth().toString().padStart(2, '0')}-${date.getFullYear().toString().padStart(4, '0')}, ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
 
-                        return <div key={index} className="w-full flex justify-between">
+                        return <div key={index} className="w-full flex blog-post-info-list justify-between">
                             <div className="w-full flex gap-4 items-center">
-                                <Link className="post-title" href={`/blog/post/${post.slug}`}>
+                                <Link className="post-title" href={`/blog/${post.slug}`}>
                                     {post.title}
                                 </Link>
                                 <Muted>

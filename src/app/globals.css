@@ -111,6 +111,13 @@ body {
 	text-shadow: 4px 4px 24px rgba(255, 255, 255, 0.25);
 }
 
+@media only screen and (max-width: 450px) {
+	.blog-post-info-list {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
