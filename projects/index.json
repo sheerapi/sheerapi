@@ -28,6 +28,63 @@
                 ]
             ],
             "status": "Indefinite hiatus"
+        },
+        {
+            "name": "Wonderland",
+            "tags": [
+                "wayland",
+                "window-manager"
+            ],
+            "description": "Simple wayland compositor (window manager), built on top of Mountain",
+            "repo": "EclipseLinux/Wonderland",
+            "post": "",
+            "id": "wonderland",
+            "colors": [
+                [
+                    155,
+                    83,
+                    237
+                ],
+                [
+                    237,
+                    83,
+                    188
+                ],
+                [
+                    237,
+                    83,
+                    139
+                ]
+            ],
+            "status": "Not even started"
+        },
+        {
+            "name": "Solar",
+            "tags": [
+                "package-manager"
+            ],
+            "description": "Fast and reliable package manager able to install from a lot of sources",
+            "repo": "EclipseLinux/Solar",
+            "post": "",
+            "id": "solar",
+            "colors": [
+                [
+                    237,
+                    137,
+                    83
+                ],
+                [
+                    237,
+                    83,
+                    88
+                ],
+                [
+                    234,
+                    237,
+                    83
+                ]
+            ],
+            "status": "Indefinite hiatus"
         }
     ]
 }
