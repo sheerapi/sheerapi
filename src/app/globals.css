@@ -336,3 +336,9 @@ code {
 	right: 0;
 	bottom: 0;
 }
+
+.project-page-main {
+	width: calc(100% - 2rem);
+	margin-top: 4rem;
+	margin-left: 2rem;
+}
