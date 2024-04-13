@@ -9,6 +9,7 @@ export default function Home() {
 			<div className="flex gap-4">
 				<Link className={buttonVariants({ variant: "default" })} href="/blog">blog</Link>
 				<Link className={buttonVariants({ variant: "default" })} href="/about">about</Link>
+				<Link className={buttonVariants({ variant: "default" })} href="/projects">projects</Link>
 			</div>
 		</main>
 	);

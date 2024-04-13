@@ -7,12 +7,17 @@ import Muted from "@/components/ui/muted";
 import { useState, useEffect } from "react";
 import style from "./page.module.css";
 import { Skeleton } from "@/components/ui/skeleton";
+import { CanvasRevealEffect } from "@/components/ui/canvas-reveal";
+import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
 
 export default function About() {
     let [songName, setSongName] = useState("");
     let [songAlbum, setSongAlbum] = useState("");
     let [songArtist, setSongArtist] = useState("");
     let [songPhoto, setSongPhoto] = useState("");
+
+    const [hovered, setHovered] = React.useState(false);
 
     const sync = async () => {
         const params = new URLSearchParams();
@@ -45,15 +50,17 @@ export default function About() {
     };
 
     useEffect(() => {
+        sync();
+
         const timer = setInterval(sync, 5000);
 
         return () => {
             clearInterval(timer);
         }
-    })
+    }, []);
 
     return (
-        <main className="flex justify-start items-start h-full flex-col gap-5">
+        <main className="flex justify-start items-start h-full flex-col gap-5 about-main">
             <div className="absolute top-[2rem] left-[2rem]">
                 <Breadcrumb>
                     <BreadcrumbList>
@@ -68,7 +75,7 @@ export default function About() {
                 <Header>about me.</Header>
                 <p>
                     hi, i'm sheerapi. i like to code, preferably in c++ <Muted>(no i won't switch to rust)</Muted>,
-                    but i also like javascript/typescript, c#.<br /> i'm currently working on <a href="">eclipse linux</a>
+                    but i also like javascript/typescript, c#.<br /> i'm currently working on <a className="link" href="https://github.com/EclipseLinux">eclipse linux</a>, and the whole ecosystem it inherently means.
                 </p>
             </div>
 
@@ -127,6 +134,37 @@ export default function About() {
                     </div>
                 </div>
             </div>
+
+            <div className="list">
+                <Header>more about me.</Header>
+                <ul>
+                    <li>
+                        i was born on nov 12
+                    </li>
+
+                    <li>
+                        i speak <a className="link" href="https://en.wikipedia.org/wiki/Spanish_language">spanish</a> <Muted>natively</Muted> and <a className="link" href="https://en.wikipedia.org/wiki/English_language">english</a>
+                    </li>
+
+                    <li>
+                        i have tons of unfinished, discarded, or just "thought about" projects
+                    </li>
+
+                    <li>
+                        i use arch linux btw
+                    </li>
+
+                    <li>
+                        i like low-level programming ngl, but i also love high-level too
+                    </li>
+
+                    <li>
+                        i tend to create projects and leave them unfinished
+                    </li>
+                </ul>
+            </div>
+
+            <div className={style.padding}></div>
         </main>
     );
 }

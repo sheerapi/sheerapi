@@ -34,6 +34,7 @@
     transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     margin-left: 2rem;
     margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .song_card:hover {
@@ -72,6 +73,46 @@
     background-position: center;
 }
 
+@media only screen and (max-width: 1000px) {
+    .interest_grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        gap: 1rem;
+    }
+
+    .interest {
+        width: 8rem;
+        height: 8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .interest_grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        gap: 1rem;
+    }
+
+    .interest {
+        width: 7rem;
+        height: 7rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .interest_page {
+        position: static;
+        width: 50%;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
 .interest:hover {
     transform: rotate(-5deg) translateY(-5%);
     box-shadow: 4px 4px 24px rgba(255, 255, 255, 0.25);
@@ -94,4 +135,9 @@
 
 .interest_container:hover {
     backdrop-filter: grayscale(0%) blur(0px);
+}
+
+.padding {
+    width: 100%;
+    min-height: 3rem;
 }

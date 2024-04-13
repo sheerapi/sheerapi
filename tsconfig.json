@@ -39,7 +39,7 @@
     "src/app/blog/posts/[post]/page.jsx",
     "src/app/blog/write/page.jsx",
     "src/components/ui/image.jsx",
-    "src/app/blog/post/[slug]/page.tsx"
+    "src/app/blog/[slug]/page.tsx"
   ],
   "exclude": [
     "node_modules"

@@ -25,7 +25,6 @@ export default function RootLayout({
 		<html lang="en">
 			<head>
 				<meta name="google-site-verification" content="sG8Oh9UyRJEqvc9vO80nBgZtD2UWlGDYiw3qTpIJLBk" />
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" />
 			</head>
 			<body className={inter.className}>
 				<SpeedInsights />
