@@ -1,33 +1,28 @@
 {
     "projects": [
         {
-            "name": "Mountain",
+            "name": "Drift",
             "tags": [
                 "ui",
                 "framework"
             ],
             "description": "A next-gen UI framework built on top of Skia and Yoga, purely in C++",
-            "repo": "EclipseLinux/Mountain",
+            "repo": "EclipseLinux/Drift",
             "post": "",
-            "id": "mountain",
+            "id": "drift",
             "colors": [
                 [
-                    116,
-                    166,
-                    252
+                    255,
+                    154,
+                    61
                 ],
                 [
-                    241,
-                    252,
-                    116
-                ],
-                [
-                    252,
-                    118,
-                    116
+                    235,
+                    112,
+                    255
                 ]
             ],
-            "status": "Indefinite hiatus"
+            "status": "Just created"
         },
         {
             "name": "Wonderland",
@@ -35,7 +30,7 @@
                 "wayland",
                 "window-manager"
             ],
-            "description": "Simple wayland compositor (window manager), built on top of Mountain",
+            "description": "Simple wayland compositor (window manager), built on top of Drift",
             "repo": "EclipseLinux/Wonderland",
             "post": "",
             "id": "wonderland",
