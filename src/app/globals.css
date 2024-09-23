@@ -90,3 +90,34 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+* {
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+  background-color: black;
+}
+
+.rotate {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
