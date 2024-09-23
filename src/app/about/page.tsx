@@ -31,7 +31,7 @@ const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-pla
 const getAccessToken = async () => {
     const response = await axios.post(TOKEN_ENDPOINT, new URLSearchParams({
         grant_type: 'refresh_token',
-        code: refresh_token || "",
+        refresh_token: refresh_token || "",
     }), {
         headers: {
             Authorization: `Basic ${basic}`,
