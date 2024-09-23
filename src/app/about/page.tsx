@@ -22,7 +22,7 @@ import { Progress } from "@/components/ui/progress";
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
 export default function About() {
-    const { data } = useSWR('/api/spotify', fetcher, { refreshInterval: 1000 });
+    const { data } = useSWR('/api/song', fetcher, { refreshInterval: 1000 });
 
     return (
         <div className="h-full w-full bg-black">
