@@ -17,7 +17,8 @@ const nextConfig =
             },
         ],
     },
-    crossOrigin: "anonymous"
+    crossOrigin: "anonymous",
+    output: "standalone"
 };
 
 export default nextConfig;

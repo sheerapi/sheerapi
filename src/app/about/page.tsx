@@ -2,7 +2,6 @@
 
 import { BackgroundLines } from "@/components/ace/bg-lines";
 import { LinkPreview } from "@/components/ace/link-preview";
-import useSWR from 'swr';
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -19,10 +18,98 @@ import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 
-const fetcher = (url: string) => axios.get(url).then(res => res.data);
+require('dotenv').config();
+
+const client_id = process.env.NEXT_SPOTIFY_CLIENT_ID;
+const client_secret = process.env.NEXT_SPOTIFY_CLIENT_SECRET;
+const refresh_token = process.env.NEXT_SPOTIFY_REFRESH_TOKEN;
+
+const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
+const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing';
+
+const getAccessToken = async () => {
+    const response = await axios.post(TOKEN_ENDPOINT, new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: refresh_token || "",
+    }), {
+        headers: {
+            Authorization: `Basic ${basic}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    });
+
+    return response.data.access_token;
+};
+
+const getNowPlaying = async () => {
+    const access_token = await getAccessToken();
+
+    return axios.get(NOW_PLAYING_ENDPOINT, {
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+        },
+    });
+};
 
 export default function About() {
-    const { data } = useSWR('/api/song', fetcher, { refreshInterval: 1000 });
+    const [song, setSong] = useState({
+        isPlaying: false,
+        title: "Not Playing",
+        artist: "",
+        album: "",
+        albumImageUrl: "",
+        songUrl: "",
+        progress: 0,
+        duration: 0,
+        popularity: "",
+    });
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        const fetchSong = async () => {
+            const response = await getNowPlaying();
+            const song = response.data;
+            const isPlaying = song.is_playing;
+            const title = song.item.name;
+            const artist = song.item.artists.map((artist: any) => artist.name).join(', ');
+            const album = song.item.album.name;
+            const albumImageUrl = song.item.album.images[0].url;
+            const songUrl = song.item.external_urls.spotify;
+            const progress = song.progress_ms;
+            const duration = song.item.duration_ms;
+            const popularity = song.item.popularity;
+
+            const data = {
+                isPlaying,
+                title,
+                artist,
+                album,
+                albumImageUrl,
+                songUrl,
+                progress,
+                duration,
+                popularity
+            };
+
+            setSong(data);
+            console.log("Hi");
+            if (data != null && data.isPlaying) {
+                setLoaded(true);
+            }
+            else {
+                setLoaded(false);
+            }
+        };
+
+        fetchSong();
+
+        const interval = setInterval(() => {
+            fetchSong();
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="h-full w-full bg-black">
@@ -43,18 +130,18 @@ export default function About() {
 
                 <div className="z-50 relative w-full h-96 bg-stone-900 rounded-lg flex flex-col md:flex-row md:justify-between">
                     <div className="w-full  border-2 rounded-tr-xl rounded-tl-xl md:rounded-tr-none md:rounded-l-xl border-stone-700" style={{
-                        backgroundImage: `url(${((data != null && data?.isPlaying) ? data?.albumImageUrl : "")})`
+                        backgroundImage: `url(${(loaded ? song.albumImageUrl : "")})`
                     }}>
                         <div className="flex-col backdrop-blur-3xl bg-black/[0.75] h-full bg-cover bg-no-repeat rounded-tr-xl rounded-tl-xl md:rounded-tr-none md:rounded-l-xl flex justify-left items-top p-8 gap-6">
                             <p className="text-2xl font-bold drop-shadow-[4px_4px_24px_rgba(255,255,255,0.5)]">what im listening to:</p>
                             <div className="flex flex-col w-full gap-px">
                                 <div className="flex w-full h-32 justify-center align-center">
-                                    {(data != null && data?.isPlaying) ? <img className="rounded-full w-32 h-32 rotate" src={data?.albumImageUrl} alt={data?.album}></img> : <Skeleton className="rounded-full w-32 h-32"></Skeleton>}
+                                    {loaded ? <img className="rounded-full w-32 h-32 rotate" src={song?.albumImageUrl} alt={song?.album}></img> : <Skeleton className="rounded-full w-32 h-32"></Skeleton>}
                                 </div>
-                                {(data != null && data?.isPlaying) ? <span className="font-bold text-xl mt-4 w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)]">{data?.title}</span> : <Skeleton className="rounded-lg w-40 h-4 mt-4"></Skeleton>}
-                                {(data != null && data?.isPlaying) ? <span className="font-medium text-lg w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)] text-white/[0.5]">{data?.album}</span> : <Skeleton className="rounded-lg w-40 h-2"></Skeleton>}
-                                {(data != null && data?.isPlaying) ? <span className="font-normal text-md w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)] text-white/[0.4]">{data?.artist}</span> : <Skeleton className="rounded-lg w-40 h-2"></Skeleton>}
-                                {(data != null && data?.isPlaying) ? <Progress value={(data?.progress / data?.duration) * 100} className="w-full h-2 mt-2"></Progress> : <Skeleton className="rounded-lg w-full h-2 mt-1"></Skeleton>}
+                                {loaded ? <span className="font-bold text-xl mt-4 w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)]">{song.title}</span> : <Skeleton className="rounded-lg w-40 h-4 mt-4"></Skeleton>}
+                                {loaded ? <span className="font-medium text-lg w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)] text-white/[0.5]">{song.album}</span> : <Skeleton className="rounded-lg w-40 h-2"></Skeleton>}
+                                {loaded ? <span className="font-normal text-md w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)] text-white/[0.4]">{song.artist}</span> : <Skeleton className="rounded-lg w-40 h-2"></Skeleton>}
+                                {loaded ? <Progress value={(song.progress / song.duration) * 100} className="w-full h-2 mt-2"></Progress> : <Skeleton className="rounded-lg w-full h-2 mt-1"></Skeleton>}
                             </div>
                         </div>
                     </div>
