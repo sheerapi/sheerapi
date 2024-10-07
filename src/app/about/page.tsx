@@ -17,6 +17,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
+import { FlipWords } from "@/components/ace/flip";
+
+const lyricsFinder = require('lyrics-finder');
 
 require('dotenv').config();
 
@@ -64,6 +67,7 @@ export default function About() {
         duration: 0,
         popularity: "",
     });
+    const [lyrics, setLyrics] = useState(["None"]);
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
@@ -79,6 +83,8 @@ export default function About() {
             const progress = song.progress_ms;
             const duration = song.item.duration_ms;
             const popularity = song.item.popularity;
+
+            setLyrics((await lyricsFinder(artist, title)).split("\n") || []);
 
             const data = {
                 isPlaying,
@@ -135,8 +141,9 @@ export default function About() {
                         <div className="flex-col backdrop-blur-3xl bg-black/[0.75] h-full bg-cover bg-no-repeat rounded-tr-xl rounded-tl-xl md:rounded-tr-none md:rounded-l-xl flex justify-left items-top p-8 gap-6">
                             <p className="text-2xl font-bold drop-shadow-[4px_4px_24px_rgba(255,255,255,0.5)]">what im listening to:</p>
                             <div className="flex flex-col w-full gap-px">
-                                <div className="flex w-full h-32 justify-center align-center">
+                                <div className="flex w-full h-32 justify-between align-center">
                                     {loaded ? <img className="rounded-full w-32 h-32 rotate" src={song?.albumImageUrl} alt={song?.album}></img> : <Skeleton className="rounded-full w-32 h-32"></Skeleton>}
+                                    <FlipWords words={lyrics} duration={3000} className="z-50 text-center text-balance font-medium drop-shadow-[4px_4px_24px_rgba(255,255,255,0.5)] hover:font-black text-xl md:text-8xl lg:text-9xl z-20 bg-clip-text text-white bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"></FlipWords>
                                 </div>
                                 {loaded ? <span className="font-bold text-xl mt-4 w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)]">{song.title}</span> : <Skeleton className="rounded-lg w-40 h-4 mt-4"></Skeleton>}
                                 {loaded ? <span className="font-medium text-lg w-full drop-shadow-[4px_4px_24px_rgba(255,255,255,1)] text-white/[0.5]">{song.album}</span> : <Skeleton className="rounded-lg w-40 h-2"></Skeleton>}
