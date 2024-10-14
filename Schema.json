@@ -1,0 +1,203 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Documentation Schema",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "namespace": {
+            "type": "string"
+        },
+        "brief": {
+            "type": "string"
+        },
+        "methods": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "brief": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "ctor",
+                            "dtor",
+                            "method"
+                        ]
+                    },
+                    "return": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "segment": {
+                                    "type": "string"
+                                },
+                                "ref": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "segment"
+                            ]
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "params": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "desc": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "ref": {
+                                    "type": "string"
+                                },
+                                "default": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "desc",
+                                "type"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "brief",
+                    "type"
+                ]
+            }
+        },
+        "variables": {
+            "type": "object",
+            "properties": {
+                "public": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "ref": {
+                                "type": "string"
+                            },
+                            "qualifier": {
+                                "type": "string"
+                            },
+                            "default": {
+                                "type": "string"
+                            },
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "type"
+                        ]
+                    }
+                },
+                "private": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "default": {
+                                "type": "string"
+                            },
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "type"
+                        ]
+                    }
+                },
+                "protected": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "default": {
+                                "type": "string"
+                            },
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "type"
+                        ]
+                    }
+                }
+            },
+            "required": []
+        }
+    },
+    "required": [
+        "name",
+        "type",
+        "tags",
+        "namespace",
+        "brief"
+    ]
+}
