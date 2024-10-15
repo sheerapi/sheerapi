@@ -1,203 +1,240 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Documentation Schema",
-    "type": "object",
-    "properties": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DocType",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "brief": {
+      "type": "string"
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Method"
+      }
+    },
+    "variables": {
+      "$ref": "#/definitions/Variables"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Event"
+      }
+    }
+  },
+  "required": ["name", "type", "tags", "namespace", "brief"],
+  "definitions": {
+    "Method": {
+      "type": "object",
+      "properties": {
         "name": {
-            "type": "string"
-        },
-        "type": {
-            "type": "string"
-        },
-        "tags": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
-        },
-        "namespace": {
-            "type": "string"
+          "type": "string"
         },
         "brief": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "return": {
+          "$ref": "#/definitions/ReturnObject"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
             "type": "string"
+          }
         },
-        "methods": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "brief": {
-                        "type": "string"
-                    },
-                    "type": {
-                        "type": "string",
-                        "enum": [
-                            "ctor",
-                            "dtor",
-                            "method"
-                        ]
-                    },
-                    "return": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "segment": {
-                                    "type": "string"
-                                },
-                                "ref": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "segment"
-                            ]
-                        }
-                    },
-                    "tags": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "params": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "desc": {
-                                    "type": "string"
-                                },
-                                "type": {
-                                    "type": "string"
-                                },
-                                "ref": {
-                                    "type": "string"
-                                },
-                                "default": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "name",
-                                "desc",
-                                "type"
-                            ]
-                        }
-                    }
-                },
-                "required": [
-                    "name",
-                    "brief",
-                    "type"
-                ]
-            }
-        },
-        "variables": {
-            "type": "object",
-            "properties": {
-                "public": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string"
-                            },
-                            "ref": {
-                                "type": "string"
-                            },
-                            "qualifier": {
-                                "type": "string"
-                            },
-                            "default": {
-                                "type": "string"
-                            },
-                            "tags": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "required": [
-                            "name",
-                            "type"
-                        ]
-                    }
-                },
-                "private": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string"
-                            },
-                            "default": {
-                                "type": "string"
-                            },
-                            "tags": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "required": [
-                            "name",
-                            "type"
-                        ]
-                    }
-                },
-                "protected": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string"
-                            },
-                            "default": {
-                                "type": "string"
-                            },
-                            "tags": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "required": [
-                            "name",
-                            "type"
-                        ]
-                    }
-                }
-            },
-            "required": []
+        "params": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Parameter"
+          }
         }
+      },
+      "required": ["name", "brief", "type"]
     },
-    "required": [
-        "name",
-        "type",
-        "tags",
-        "namespace",
-        "brief"
-    ]
+    "ReturnObject": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnSegment"
+          }
+        },
+        "brief": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["name"]
+    },
+    "ReturnSegment": {
+      "type": "object",
+      "properties": {
+        "segment": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        }
+      },
+      "required": ["segment"]
+    },
+    "Parameter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnSegment"
+          }
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "default": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["name", "desc", "type"]
+    },
+    "Variables": {
+      "type": "object",
+      "properties": {
+        "public": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Variable"
+          }
+        },
+        "private": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Variable"
+          }
+        },
+        "protected": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Variable"
+          }
+        }
+      }
+    },
+    "Variable": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "datatype": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnSegment"
+          }
+        },
+        "brief": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "default": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["name", "datatype", "brief"]
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "brief": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/EventData"
+        }
+      },
+      "required": ["name", "brief"]
+    },
+    "EventData": {
+      "type": "object",
+      "properties": {
+        "prefix": {
+          "type": "string"
+        },
+        "name": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnSegment"
+          }
+        },
+        "brief": {
+          "type": "string"
+        }
+      },
+      "required": ["name"]
+    }
+  }
 }
